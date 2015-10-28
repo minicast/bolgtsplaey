@@ -1,3 +1,6 @@
+# meteor
+.meteor/local
+
 # Logs
 logs
 *.log
