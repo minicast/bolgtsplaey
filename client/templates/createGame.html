@@ -1,0 +1,234 @@
+
+<template name="createGame">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>Create Game</strong>
+    </div>
+    <div class="panel-body">
+      <form class="form-horizontal" id="createGame">
+        <fieldset>
+        <!-- Form Name -->
+        <!-- <legend>Form Name</legend> -->
+        <div class="form-group">
+          <!-- <label class="col-md-4 control-label"
+                  for="prependedtext">Prepended Text</label> -->
+          <div class="col-md-12">
+            <div class="input-group">
+              <span class="input-group-addon">
+                Formula
+              </span>
+              <input id="formulaTextInput" type="text" name="formulaText"
+                class="form-control form-control-lg" value="(~(p&q)^(~r|~s))" required
+                placeholder="Insert a Formula" list="exampleFormulae"/>
+                <datalist id="exampleFormulae">
+                  <option value="p"></option>
+                  <option value="~p"></option>
+                  <option value="(p&q)"></option>
+                  <option value="(((p&q)|p1)>p2)"></option>
+                  <option value="(p|(q>q3))"></option>
+                  <option value="(p>q)"></option>
+                  <option value="(p^q)"></option>
+                  <option value="~(p&q)"></option>
+                  <option value="~~(p|q)"></option>
+                  <option value="(~(p&q)^(~r|~s))"></option>
+                </datalist>
+        	    <!-- <span class="input-group-addon">
+                  <input type="checkbox">&nbsp;<i class="fa fa-file-pdf-o fa-lg"></i>
+              </span> -->
+        	    <!-- <span class="input-group-addon">
+                  <i class="fa fa-eye fa-lg"></i>
+              </span> -->
+              <div class="input-group-btn">
+                <button class="btn btn-default active" type="button"
+                  style="cursor:help"
+                  title="negation ~
+conjunction   &
+disjunction   |
+implication   >
+equivalence   ^
+
+example:
+    (~(p&q)^(~r|~s))
+
+(see examples in the dropdown list)" onclick="alert(' ~   negation    \n &   conjunction  \n |   disjunction \n >   implication \n ^    equivalence \n\n example: \n     ((p>q)^(~p|q)) \n\n (see more examples in the dropdown list)')">
+                  <!-- <i class="fa fa-info-circle fa-lg"></i> -->
+                  <!-- <i class="fa fa-question-circle fa-lg"></i> -->
+                  <i class="fa fa-book fa-lg"></i>
+                  <!-- <i class="fa fa-life-saver fa-lg"></i> -->
+                </button>
+                <!--<button class="btn btn-default active" type="button">
+                  <i class="fa fa-file-pdf-o fa-lg"></i>
+                </button>
+                <button class="btn btn-default active" type="button">
+                  <i class="fa fa-eye fa-lg"></i>
+                </button>
+                <button type="button"
+                  class="btn btn-default dropdown-toggle active"
+                  data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="#">Option one</a></li>
+                  <li><a href="#">Option two</a></li>
+                  <li><a href="#">Option three</a></li>
+                </ul> -->
+              </div>
+            </div>
+            <!-- <p class="help-block">help</p> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- <label class="col-md-4 control-label" for="prependedtext">Prepended Text</label> -->
+          <div class="col-sm-12">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1">
+                Structure
+              </span>
+              <input id="structureTextInput" type="text" name="structureText"
+                class="form-control form-control-lg"
+                value="w:VLp,q,r,s" required
+                placeholder="Insert a Model" list="exampleModels"/>
+                <datalist id="exampleModels">
+                  <option value="w:VLp"></option>
+                  <option value="w:VLq"></option>
+                  <option value="w:VLp,q"></option>
+                  <option value="w:VL"></option>
+                  <option value="v:VLq,s"></option>
+                  <option value="v:VLp,r"></option>
+                  <option value="v:VLp,s"></option>
+                  <option value="v:VLp,q,r"></option>
+                  <option value="v:VLp,r,s"></option>
+                  <option value="v:VLp,q,r,s"></option>
+                </datalist>
+              <div class="input-group-btn">
+                <button class="btn btn-default active" type="button"
+                  style="cursor:help"
+                  title="metanominal:   w,v,u
+valuation symbol:   VL
+valuation list:   p,q,r
+valuation:   (valuation symbol)(valuation list)
+model:   (metanominal):(valuation)
+
+example:
+    w:VLp,q,r
+
+(see examples in the dropdown list)" onclick="alert('metanominal:   w,v,u \n valuation symbol:   VL \n valuation list:   p,q,r \n valuation:   (valuation symbol)(valuation list) \n model:   (metanominal):(valuation) \n\n example: \n     w:VLp,q,r \n\n (see more examples in the dropdown list)')">
+                  <!-- <i class="fa fa-info-circle fa-lg"></i> -->
+                  <!-- <i class="fa fa-question-circle fa-lg"></i> -->
+                  <i class="fa fa-book fa-lg"></i>
+                  <!-- <i class="fa fa-life-saver fa-lg"></i> -->
+                </button>
+                <!--<button class="btn btn-default" type="button">
+                  <i class="fa fa-file-pdf-o fa-lg"></i>
+                </button>
+                <button class="btn btn-default" type="button">
+                  <i class="fa fa-eye fa-lg"></i>
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="#">Option one</a></li>
+                  <li><a href="#">Option two</a></li>
+                  <li><a href="#">Option three</a></li>
+                </ul> -->
+              </div>
+            </div>
+            <!-- <p class="help-block">help</p> -->
+          </div>
+          <div class="col-sm-4">
+          </div>
+        </div>
+        </fieldset>
+        <fieldset>
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <input type="submit" class="btn btn-default active"
+              name="create" value="Create Playable Game">
+          </div>
+          <!-- <div class="btn-group pull-left" role="group" aria-label="...">
+            <div class="btn btn-default" title="click to show some examples">
+              <i class="fa fa-question-circle fa-lg"></i>
+            </div>
+          </div> -->
+        </fieldset>
+        <!-- <fieldset>
+        </fieldset> -->
+      </form>
+    </div>
+  </div>
+</template>
+
+
+
+          <!-- <div class="input-group">
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="p">p
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="~p">~p
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="(p&q)" checked>(p&q)
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="(p|q)">(p|q)
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="(p>q)">(p>q)
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="(p^q)">(p^q)
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="~(p&q)">~(p&q)
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula" value="~~(p|q)">~~(p|q)
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="formula"
+                value="(~(p&q)^(~r|~s))">(~(p&q)^(~r|~s))
+            </label>
+          </div>
+          <div class="input-group">
+            <label class="radio-inline">
+              <input type="radio" name="structure" value="w:VLp">w:VLp
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="structure" value="w:VLq">w:VLq
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="structure"
+                value="w:VLp,q" checked>w:VLp,q
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="structure" value="w:VL">w:VL
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="structure" value="v:VLp,r">v:VLp,r
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="structure" value="v:VLp,s">v:VLp,s
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="structure" value="v:VLp,q,r">v:VLp,q,r
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="structure" value="v:VLp,r,s">v:VLp,r,s
+            </label>
+          </div> -->
+
+
+
+          <!-- <div class="btn-group" role="group">
+            <button type="button"
+              class="btn btn-default dropdown-toggle active"
+              data-toggle="dropdown" aria-expanded="false">
+              Dropdown
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Dropdown link</a></li>
+              <li><a href="#">Dropdown link</a></li>
+            </ul>
+          </div> -->

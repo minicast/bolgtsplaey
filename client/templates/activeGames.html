@@ -1,0 +1,168 @@
+<template name="activeGames">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <strong>Ongoing Game</strong>
+    </div>
+    {{#each activeGames}}
+      <div class="panel panel-info" style="margin:0">
+        <div class="panel-heading">
+          <!-- <span>Game:&nbsp;<strong>{{_id}}</strong></span>&nbsp;&nbsp; -->
+          <span>
+            Starting Formula:&nbsp;<strong>{{formula.ascii}}</strong>
+          </span>&nbsp;&nbsp;
+          <span>
+            Starting Model:&nbsp;<strong>{{structure.ascii}}</strong>
+          </span>&nbsp;&nbsp;
+          <span>
+            Playing with:&nbsp;<strong>{{otherPlayer currentUser}}</strong>
+          </span>&nbsp;&nbsp;
+          {{#with perspective currentUser._id}}
+            {{#if startingRole}}
+              <span>
+                Starting Role:&nbsp;<strong>{{startingRole}}</strong>
+                ({{startingRoleDistributionMessage}})
+              </span>&nbsp;&nbsp;
+            {{/if}}
+          {{/with}}
+          {{#if roleChoices}}
+            <div>
+              <button class="roleChoice btn btn-lg btn-success"
+                value="verifier">
+                <strong>Verifier</strong> <br>
+                <small>commit to formula being true in model</small>
+              </button>&nbsp;
+              <button class="roleChoice btn btn-lg btn-danger"
+                value="falsifier">
+                <strong>Falsifier</strong> <br>
+                <small>commit to formula being false in model</small>
+              </button>
+              <br>
+              Please choose how do you want to play the game
+            </div>
+          {{/if}}
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            {{#if history}}
+              <thead>
+                <tr class="info text-info">
+                  <th>
+                    No
+                  </th>
+                  <th>
+                    Move
+                  </th>
+                  <th>
+                    Player
+                  </th>
+                  <th>
+                    Role
+                  </th>
+                  <th>
+                    Time
+                  </th>
+                </tr>
+              </thead>
+            {{/if}}
+            <tbody>
+              {{#each history}}
+                <tr class="text-info">
+                  <td>
+                    {{moveNo}}
+                  </td>
+                  <td>
+                    {{move}}
+                  </td>
+                  <td>
+                    {{youPlayer moveBy currentUser}}
+                  </td>
+                  <td>
+                    {{moveRole}}
+                  </td>
+                  <td>
+                    {{momentize moveAt}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        {{#unless roleChoices}}
+          <div class="alert alert-info" style="margin-bottom:0px;">
+            Formula:&nbsp;<strong>{{subFormula.ascii}}</strong>&nbsp;
+            Model:&nbsp;<strong>{{structure.ascii}}</strong>&nbsp;
+            {{#with perspective currentUser._id}}
+              {{#if role}}
+                Role: <strong>{{role}}</strong>&nbsp;({{roleDistributionMessage}})
+              {{/if}}
+              <br>
+              {{#if verifierMessage}}
+                <br>
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-{{verifierColor}}">
+                    <h4>
+                      You {{verifierMessage}} <br>
+                      {{../subFormula.ascii}} is {{truthValue}}
+                    </h4>
+                  </li>
+                </ul>
+              {{else}}
+                {{#if falsifierMessage}}
+                  <br>
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-{{falsifierColor}}">
+                      <h4>
+                        You {{falsifierMessage}} <br>
+                        {{../subFormula.ascii}} is {{truthValue}}
+                      </h4>
+                    </li>
+                  </ul>
+                {{else}}
+                  {{#if choices}}
+                    {{#each choices}}
+                      <button class="formulaChoice btn btn-info"
+                        value={{../../_id}}>
+                        {{this}}
+                      </button>
+                      <!-- {{> move}} -->
+                    {{/each}}
+                    <br>
+                    Please make your move
+                  {{else}}
+                    <i class="fa fa-3x fa-spinner fa-pulse"></i>
+                    <br>
+                    Please wait your opponent's move
+                  {{/if}}
+                {{/if}}
+              {{/if}}
+            {{/with}}
+            <!-- <br> -->
+            {{#with backtrack}}
+              {{#if backtrack}}
+                <!-- Backtrack to synthesize a winning strategy in the game -->
+                <!-- <br>
+                <button id="backtrack" class="btn btn-sm btn-info"
+                  value="{{_id}}">
+                  Backtrack
+                </button>&nbsp;&nbsp;&nbsp;
+                <button  id="postpone" class="btn btn-sm btn-info"
+                  value="{{_id}}">
+                  Postpone
+                </button> -->
+                <br>
+                {{#each bksn}}
+                  <button id="backtrack" class="btn btn-sm btn-info"
+                    value="{{_id}}">
+                    Step {{this}}
+                  </button>&nbsp;&nbsp;
+                {{/each}}
+                <br>
+                Please pick the step you want to backtrack at
+              {{/if}}
+            {{/with}}
+          </div>
+        {{/unless}}
+      </div>
+    {{/each}}
+  </div>
+</template>

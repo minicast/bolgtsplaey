@@ -1,0 +1,32 @@
+/* rotate the letters in PLAEY */
+.rotate-letters {
+    height:8px;
+    line-height:16px;
+    position:relative;
+  }
+  span.norotate {
+    float:left;
+    margin-top:1px;
+    -ms-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+  }
+  span.rotate {
+    margin-bottom:6px;
+    float:left;
+    -ms-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+  }
+
+/* center table headers */
+th {
+  text-align: center;
+}
+
+/* vertical center table data */
+.table > tbody > tr > td {
+  vertical-align: middle;
+}

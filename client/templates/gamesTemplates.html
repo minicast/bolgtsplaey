@@ -1,0 +1,140 @@
+<template name="playableGames">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <strong>Playable Games</strong>
+    </div>
+    <ul class="list-group">
+      {{#each playableGames}}
+        <li class="list-group-item list-group-item-success">
+          <div>
+            <span>
+              Formula:&nbsp;<strong>{{formula.ascii}}</strong>
+            </span>&nbsp;&nbsp;
+            <span>
+              Model:&nbsp;<strong>{{structure.ascii}}</strong>
+            </span>&nbsp;&nbsp;
+          </div>
+          <div>
+            <span>
+              Created&nbsp;at&nbsp;<strong>{{momentize createdAt}}</strong>&nbsp;by&nbsp;<strong>{{youPlayer players.[0] currentUser}}</strong>
+            </span>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div>
+            <span>
+              Joined&nbsp;at&nbsp;<strong>{{momentize joinedAt}}</strong>&nbsp;by&nbsp;<strong>{{youPlayer players.[1] currentUser}}</strong>
+            </span>&nbsp;&nbsp;&nbsp;
+            <span>
+              <button class="btn btn-sm btn-success" value="{{_id}}">Play</button>
+            </span>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+
+<template name="publicGames">
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <strong>Public Games</strong>
+    </div>
+    <ul class="list-group">
+      {{#each publicGames}}
+        <li class="list-group-item list-group-item-warning">
+          <div>
+            <span>
+              Formula:&nbsp;<strong>{{formula.ascii}}</strong>
+            </span>&nbsp;&nbsp;
+            <span>Model:&nbsp;<strong>{{structure.ascii}}</strong>
+            </span>&nbsp;&nbsp;
+          </div>
+          <div>
+            <span>
+              Created&nbsp;at&nbsp;<strong>{{momentize createdAt}}</strong>&nbsp;by&nbsp;<strong>{{slicePlayer players.[0]}}</strong>
+            </span>&nbsp;&nbsp;&nbsp;
+            <span>
+              <button class="btn btn-sm btn-warning" value="{{_id}}">Join</button>
+            </span>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+
+<template name="initiatedGames">
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <strong>Initiated Games</strong>
+    </div>
+    <ul class="list-group">
+      {{#each initiatedGames}}
+        <li class="list-group-item list-group-item-danger">
+          <div>
+            <span>
+              Formula:&nbsp;<strong>{{formula.ascii}}</strong>
+            </span>&nbsp;&nbsp;
+            <span>
+              Model:&nbsp;<strong>{{structure.ascii}}</strong>
+            </span>&nbsp;&nbsp;
+          </div>
+          <div>
+            <span>
+              Created&nbsp;at&nbsp;<strong>{{momentize createdAt}}</strong>&nbsp;by&nbsp;<strong>You</strong>
+            </span>&nbsp;&nbsp;&nbsp;
+            <!-- &nbsp;<strong>{{players.[0]}}</strong>&nbsp;&nbsp;&nbsp; -->
+            <span>
+              <button class="btn btn-sm btn-danger" value="{{_id}}">Auto</button>
+            </span>
+        </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+
+
+<template name="allGames">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>All Games</strong>
+    </div>
+    <ul class="list-group">
+      {{#each allGames}}
+        <li class="list-group-item">
+          <span>
+            Game:&nbsp;<strong>{{_id}}</strong>
+          </span><br>
+          <span>
+            Formula:&nbsp;<strong>{{formula.ascii}}</strong>
+          </span>&nbsp;&nbsp;
+          <span>
+            Model:&nbsp;<strong>{{structure.ascii}}</strong>
+          </span>&nbsp;&nbsp;
+          <span>
+            Players:&nbsp;<strong>{{players.[0]}},&nbsp;{{players.[1]}}</strong>
+          </span>&nbsp;&nbsp;
+          <span>
+            Created&nbsp;by:&nbsp;<strong>{{createdBy}}</strong>
+            Created&nbsp;at:&nbsp;<strong>{{momentize createdAt}}</strong>
+          </span>&nbsp;&nbsp;
+          {{#if joinedBy}}
+            <span>
+              Joined&nbsp;by:&nbsp;<strong>{{joinedBy}}</strong>
+              Joined&nbsp;at:&nbsp;<strong>{{joinedAt}}</strong>
+            </span>&nbsp;&nbsp;
+          {{/if}}
+          {{#if startedBy}}
+            <span>
+              Started&nbsp;by:&nbsp;<strong>{{startedBy}}</strong>
+              Started&nbsp;at:&nbsp;<strong>{{startedAt}}</strong>
+            </span>&nbsp;&nbsp;
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

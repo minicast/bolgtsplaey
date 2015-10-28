@@ -1,0 +1,82 @@
+<template name="mainContent">
+  <div class="container-fluid">
+    <div class="row text-center">
+      <!-- mainContent -->
+      <!-- {{#mathjax}}<span>$\land$</span>{{/mathjax}}
+        MathJax needs a <span> or other <tag> to display properly -->
+
+      <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        {{> generatorStructure}}
+      </div> -->
+
+      <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+        {{> showFormulasCollection}}
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+        {{> insertFormulaForm}}
+      </div> -->
+
+      <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+        {{> showStructuresCollection}}
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+        {{> insertStructureFormSimple}}
+      </div> -->
+
+      <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        {{> insertStructureForm}}
+      </div> -->
+
+      <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        {{> d3svgStructure}}
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        {{> d3svg}}
+      </div> -->
+
+      <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+        {{> createGame}}
+        <!-- {{> insertFormulaForm}}
+        {{> insertStructureFormSimple}} -->
+      </div>
+      {{#if currentUser}}
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+        <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> -->
+          {{> activeGames}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="row text-center">
+      {{#if currentUser}}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          {{> playableGames}}
+        </div>
+      {{/if}}
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        {{> publicGames}}
+      </div>
+      {{#if currentUser}}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          {{> initiatedGames}}
+        </div>
+      {{/if}}
+      <!-- {{#if currentUser}}
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          {{> allGames}}
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          {{> postponedGames}}
+        </div>
+      {{/if}} -->
+    </div> <!-- row -->
+    <div class="row">
+      <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        {{> insertViewGameForm}}
+      </div> -->
+      <!-- <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8"> -->
+      <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        {{> showViewGamesCollection}}
+      </div> -->
+    </div>
+  </div> <!-- container -->
+</template>
