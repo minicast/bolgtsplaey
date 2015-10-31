@@ -1,3 +1,7 @@
+Template.headerTemplate.helpers({
+  status: Meteor.status
+});
+
 Template.allGames.helpers
   rendered: ->
 
