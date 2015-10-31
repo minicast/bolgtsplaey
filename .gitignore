@@ -1,5 +1,7 @@
 # meteor
 .meteor/local
+private
+settings.json
 
 # Logs
 logs
